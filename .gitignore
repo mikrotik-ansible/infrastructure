@@ -3,3 +3,5 @@
 *.retry
 *.un~
 passwords.txt
+roles/mikrotik-ansible.*
+/roles

@@ -1,0 +1,11 @@
+- src: https://github.com/mikrotik-ansible/mikrotik-firewall.git
+  version: master
+  name: mikrotik-ansible.mikrotik-firewall
+
+- src: https://github.com/mikrotik-ansible/mikrotik-initialize.git
+  version: master
+  name: mikrotik-ansible.mikrotik-initialize
+
+- src: https://github.com/mikrotik-ansible/mikrotik-ip.git
+  version: master
+  name: mikrotik-ansible.mikrotik-ip

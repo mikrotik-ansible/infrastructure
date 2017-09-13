@@ -1,0 +1,19 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Remove roles directory
+      file:
+        path: roles
+        state: absent
+
+    - name: Install requireed roels
+      command: ansible-galaxy install -r requirements.yml -p roles
+
+    - name: Update .gitignroe
+      lineinfile:
+        dest:   .gitignore
+        regexp: '^\/roles$'
+        line:   '/roles'
+        state:  present
