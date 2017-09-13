@@ -1,8 +1,16 @@
-[ansible_provision]
-10.11.11.1
-
-[test]
-10.11.11.1  ansible_port=65512
+[all]
+bgp-core ansible_host=10.11.11.2
+littlehampton ansible_host=192.168.88.5
 
 [all:vars]
 ansible_user=ansible+c
+ansible_port=65512
+
+[ansible_provision]
+bgp-core ansible_host=10.11.11.2 ansible_port=22
+
+[bgp-core]
+bgp-core ansible_host=10.11.11.2 ansible_port=65512
+
+[littlehampton]
+littlehampton ansible_host=192.168.88.5 ansible_port=65512

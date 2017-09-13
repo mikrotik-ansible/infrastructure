@@ -1,0 +1,25 @@
+---
+# Run with ansible-playbook <filename> -k
+
+- hosts: ansible_provision
+  gather_facts: no
+  connection: paramiko
+
+  roles:
+    - { role: mikrotik-initialize, delegate_to: localhost }
+    - mikrotik-ip
+#    - mikrotik-firewall
+#    - mikrotik-route
+
+  vars_prompt:
+  - name: ssh_port
+    prompt: "SSH Port"
+    private: no
+
+  - name: ssh_login
+    prompt: "Login"
+    private: no
+
+  - name: ssh_passwd
+    prompt: "Password"
+    private: yes

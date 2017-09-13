@@ -1,0 +1,10 @@
+---
+# Run with ansible-playbook <filename>
+- hosts: bgp-core
+  gather_facts: no
+  connection: paramiko
+
+  roles:
+    - mikrotik-ip
+    - mikrotik-firewall
+    - mikrotik-route

@@ -1,0 +1,10 @@
+---
+# Run with ansible-playbook <filename>
+- hosts: littlehampton
+  gather_facts: no
+  connection: paramiko
+
+  roles:
+    - mikrotik-ip
+  #  - mikrotik-firewall
+  #- mikrotik-route

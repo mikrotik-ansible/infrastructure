@@ -1,0 +1,64 @@
+mikrotik_ip:
+  dns:
+    allow_remote_requests: "no"
+    cache_max_ttl: "1w"
+    cache_size: 2048
+    max_concurrent_queries: 100
+    max_concurrent_tcp_sessions: 20
+    max_udp_packet_size: 4096
+    query_server_timeout: "2s"
+    query_total_timeout: "10s"
+    servers: "8.8.8.8,8.8.4.4"
+  dns_static:
+
+  dns_cache:
+    flush: "True"
+
+  services:
+    - name: api
+      port: 8728
+      disabled: "yes"
+      address: ""
+    - name: api-ssl
+      port: 8729
+      disabled: "yes"
+      address: ""
+    - name: ftp
+      port: 21
+      disabled: "yes"
+      address: ""
+    - name: ssh
+      port: 65512
+      disabled: "no"
+      address: "{{ management_ips }}"
+    - name: telnet
+      port: 23
+      disabled: "yes"
+      address: ""
+    - name: winbox
+      port: 8291
+      disabled: "no"
+      address: "{{ management_ips }}"
+    - name: www
+      port: 8888
+      disabled: "yes"
+      address: "{{ management_ips }}"
+    - name: www-ssl
+      port: 443
+      disabled: "yes"
+      address: ""
+
+  settings:
+    accept_redirects: "no"
+    accept_source_route: "no"
+    allow_fast_path: "yes"
+    arp_timeout: "00:01:00"
+    icmp_rate_limit: 10
+    icmp_rate_mask: "0x1818"
+    ip_forward: "yes"
+    max_neighbor_entries: 2048
+    route_cache: "yes"
+    rp_filter: "no"
+    secure_redirects: "yes"
+    send_redirects: "yes"
+    tcp_syncookies: "no"

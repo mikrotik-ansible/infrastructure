@@ -1,0 +1,5 @@
+---
+# Add SSH key to ansible user
+mikrotik_initialize:
+  ansible_user: ansible
+  ansible_user_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

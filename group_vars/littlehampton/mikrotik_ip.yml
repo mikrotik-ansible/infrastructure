@@ -1,0 +1,32 @@
+---
+
+mikrotik_ip:
+  # That remove all ip addresses you can lost connection
+  remove_old_addresses: true
+  addresses:
+    - address: 10.22.12.32/30
+      interface: "{{ wan_interface }}"
+      disabled: "yes"
+    - address: 10.0.0.129/24
+      interface: "{{ wan_interface }}"
+      comment: "Main"
+      disabled: "no"
+    - address: 10.11.11.1/24
+      inteface: ether2
+      disabled: "no"
+  # That remove all current routing table, you can lost your connection
+  remove_old_routes: true
+  routes:
+    - gateway: 10.0.0.1
+      dst_address: 0.0.0.0/0
+      distance: 1
+      scope: 30
+      target_scope: 10
+      check_gateway: ping
+      routing_mark: main
+    - geteway: 172.30.100.0/24
+      dst_address: 10.11.11.254
+      type: unicast
+      distance: 1
+      scope: 30
+      target_scope: 10

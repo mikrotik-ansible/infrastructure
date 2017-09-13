@@ -1,4 +1,25 @@
+---
+  
 mikrotik_firewall:
+  connection_tracking:
+    enabled: "no"
+    tcp-syn-sent-timeout: 5s
+    tcp-syn-received-timeout: 5s
+    tcp-established-timeout: 1d
+    tcp-fin-wait-timeout: 10s
+    tcp-close-wait-timeout: 10s
+    tcp-last-ack-timeout: 10s
+    tcp-time-wait-timeout: 10s
+    tcp-close-timeout: 10s
+    tcp-max-retrans-timeout: 5m
+    tcp-unacked-timeout: 5m
+    udp-timeout: 10s
+    udp-stream-timeout: 3m
+    icmp-timeout: 10s
+    generic-timeout: 10m
+    max-entries: 1048576
+    total-entries: 1
+
   remove_old_filter_rules: false
   filter_rules:
     - chain: input
@@ -62,4 +83,3 @@ mikrotik_firewall:
       comment: "Office Network"
   remove_old_layers7_protocols: true
   layers7_protocols: []
-
