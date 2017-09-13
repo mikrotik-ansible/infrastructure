@@ -1,0 +1,8 @@
+[ansible_provision]
+10.11.11.1
+
+[test]
+10.11.11.1  ansible_port=65512
+
+[all:vars]
+ansible_user=ansible+c

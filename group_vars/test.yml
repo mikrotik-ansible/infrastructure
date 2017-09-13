@@ -1,0 +1,65 @@
+mikrotik_firewall:
+  remove_old_filter_rules: false
+  filter_rules:
+    - chain: input
+      protocol: icmp
+      action: drop
+      comment: "Drop icmp packets"
+  remove_old_nat_rules: false
+  nat_rules:
+    - chain: srcnat
+      src_address: 10.11.11.0/24
+      action: masquerade
+      comment: "Default masquerade"
+      disabled: "no"
+    - chain: dstnat
+      dst_address: 10.0.0.129
+      protocol: tcp
+      dst_port: 65512
+      action: dst-nat
+      to_addresses: 10.11.11.254
+      to_ports: 65512
+      comment: "Port forward for workstation"
+      disabled: "no"
+  remove_old_mangle_rules: false
+  mangle_rules:
+    - chain: prerouting
+      action: "mark-routing"
+      new_routing-mark: fibre
+      passthrough: "yes"
+  remove_old_raw_rules: false
+  raw_rules:
+    - chain: prerouting
+      action: drop
+      disabled: "yes"
+      dst_port: 65535
+      protocol: tcp
+      comment: "Testing only"
+  service_port_rules:
+    - name: ftp
+      disabled: "no"
+    - name: h323
+      disabled: "yes"
+    - name: irc
+      disabled: "yes"
+    - name: pptp
+      disabled: "no"
+    - name: sip
+      ports: 5060,5061
+      disabled: "yes"
+    - name: tftp
+      ports: 69
+      disabled: "no"
+  remove_old_address_list: false
+  address_list:
+    - list: management
+      address: 10.11.11.0/24
+      disabled: "no"
+      comment: "Internal Network"
+    - list: management
+      address: 10.0.0.0/24
+      disabled: "no"
+      comment: "Office Network"
+  remove_old_layers7_protocols: true
+  layers7_protocols: []
+
