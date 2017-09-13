@@ -1,23 +1,16 @@
-Role Name
+Infrastructure
 =========
 
-A brief description of the role goes here.
+A brief Example how to use my playbooks
 
 Usage
 ------------
-```
+```bash
 git clone --recursive https://github.com/mikrotik-ansible/infrastructure.git
 ansible-playbook install-roles.yml
 ```
-Or
 ------------
-git clone https://github.com/mikrotik-ansible/infrastructure.git
-
-
-
-
-------------
-```
+```bash
 ansible-playbook ansible-provision.yml
 ```
 
