@@ -1,5 +1,5 @@
 ---
-  
+
 mikrotik_firewall:
   connection_tracking:
     enabled: "no"
@@ -17,8 +17,6 @@ mikrotik_firewall:
     udp-stream-timeout: 3m
     icmp-timeout: 10s
     generic-timeout: 10m
-    max-entries: 1048576
-    total-entries: 1
 
   remove_old_filter_rules: false
   filter_rules:
